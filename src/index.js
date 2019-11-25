@@ -66,14 +66,17 @@ function loadLecture(data, slug) {
       elmt = el('div', 'lecture__image');
       const img = el('img', 'lecture__image__img');
       img.src = item.data;
-      const capt = el('div', 'lecture__image__caption', item.caption);
       elmt.appendChild(img);
-      elmt.appendChild(capt);
+      if (item.caption) {
+        const capt = el('div', 'lecture__image__caption', item.caption);
+        elmt.appendChild(capt);
+      }
     } else if (item.type == 'youtube') {
       elmt = el('div', 'lecture__video');
       const iframe = el('iframe', 'lecture__video__iframe');
       iframe.src = item.data;
-      iframe.setAttribute('allowfullscreen', '');
+      iframe.setAttribute('frameborder', '0');
+      iframe.setAttribute('allowfullscreen', '0');
       elmt.appendChild(iframe);
     } else if (item.type === 'heading') {
       elmt = el('h3', 'lecture__heading', item.data);
@@ -85,8 +88,10 @@ function loadLecture(data, slug) {
       });
     } else if (item.type === 'quote') {
       elmt = el('div', 'lecture__quote', 
-        el('p', 0, item.data),
-        el('p', 0, item.attribute));
+        el('p', 0, item.data));
+      if (item.attribute) {
+        elmt.appendChild(el('p', 'lecture__quote__attribute', item.attribute));
+      }
     } else if (item.type === 'code') {
       elmt = el('pre', 'lecture__code', item.data);
     }

@@ -165,10 +165,10 @@
 
   & > * {
     padding: $gutter*0.5;
+  }
 
-    &:last-child {
-      font-style: italic;
-    }
+  &__attribute {
+    font-style: italic;
   }
 }
 
