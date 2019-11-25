@@ -117,9 +117,13 @@
 }
 
 .lecture__video {
-  padding-bottom: 37.5%;
+  padding-bottom: 56.25%;
   margin: $gutter*0.5 0;
   position: relative;
+
+  @media (min-width: 1100px) {
+    padding-bottom: 37.5%;
+  }
 
   &__iframe {
     width: 100%;
@@ -149,11 +153,15 @@
 }
 
 .lecture__quote {
-  width: calc(66.66666666% + #{$gutter});
+  width: calc(100% + #{$gutter});
   margin-top: $gutter;
   margin-bottom: $gutter;
   padding: $gutter*0.5;
   background-color: $lightgray;
+
+  @media (min-width: 1100px) {
+    width: calc(66.66666666% + #{$gutter});
+  }
 
   & > * {
     padding: $gutter*0.5;
@@ -168,6 +176,7 @@
   margin-top: $gutter;
   margin-bottom: $gutter;
   font-family: $font-heading;
+  white-space: pre-wrap;
 }
 
 .lecture-page-footer {
