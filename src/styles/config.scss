@@ -1,7 +1,53 @@
+// Stærðir
 $max-width: 1200px;
 $gutter: 20px;
 
-div {
-  villa-fjarlægðu-mig;
-  stylelint-ætti-að-kvarta;
+// Litir
+$black: #000;
+$darkgray: #999;
+$gray: #aaa;
+$lightgray: #ccc;
+$green: #2d2;
+$darkgreen: #1a1;
+$offwhite: #fcffd2;
+$rose: #cc9694;
+
+// Letur
+$font-main: Lora, "Times New Roman", serif;
+$font-heading: "Roboto Mono", "Courier New", monospace;
+
+// Letur imports
+@font-face {
+  font-family: "Roboto Mono";
+  src: url("../font/RobotoMono-Regular.ttf");
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: Lora;
+  src: url("../font/Lora-Regular.ttf");
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: Lora;
+  src: url("../font/Lora-Italic.ttf");
+  font-style: italic;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: Lora;
+  src: url("../font/Lora-Bold.ttf");
+  font-style: normal;
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: Lora;
+  src: url("../font/Lora-BoldItalic.ttf");
+  font-style: italic;
+  font-weight: bold;
 }

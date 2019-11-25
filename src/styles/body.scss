@@ -1,0 +1,202 @@
+.header {
+  display: flex;
+  padding: $gutter;
+  width: 100%;
+  text-align: center;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  background-image: linear-gradient(rgba(255,255,255,0.4), rgba(255,255,255,0.4)), url(../img/header.jpg);
+  background-size: cover;
+
+  @media (min-width: 1000px) {
+    // Ef tæki er nógu breitt getum við látið header fylla hálfa hæð viewports
+    // annars skilgreinist stærð headers af padding í header og fyrirsögnunum h1 og h2
+    height: 50vh;
+  }
+
+  &[data-image='img/code.jpg'] {
+    background-image: linear-gradient(rgba(255,255,255,0.4), rgba(255,255,255,0.4)), url(../img/code.jpg);
+  }
+
+  &[data-image='img/code2.jpg'] {
+    background-image: linear-gradient(rgba(255,255,255,0.4), rgba(255,255,255,0.4)), url(../img/code2.jpg);
+  }
+}
+
+.header__h1 {
+  // Skilgreinum padding til að styðja við fleiri tæki
+  padding-bottom: $gutter * 3;
+  font-family: $font-heading;
+  font-size: 48px;
+  font-weight: bold;
+}
+
+.header__h2 {
+  // Skilgreinum padding til að styðja við fleiri tæki
+  padding-top: $gutter * 3;
+  font-family: $font-heading;
+  font-size: 16px;
+  font-weight: normal;
+}
+
+.toolbar {
+  display: flex;
+  margin-top: $gutter * 2;
+  width: 100%;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.toolbar__button {
+  font-family: $font-heading;
+  font-size: 24px;
+  font-weight: bold;
+  padding: $gutter*0.5 $gutter;
+  margin-right: $gutter;
+  margin-left: $gutter;
+  background-color: $lightgray;
+  border-radius: 15px;
+  transition: background-color 300ms ease-in-out;
+
+  &:hover {
+    background-color: $darkgray;
+  }
+
+  &--selected {
+    background-color: $green;
+
+    &:hover {
+      background-color: $darkgreen;
+    }
+  }
+}
+
+.lecture {
+  margin: $gutter auto;
+  max-width: $max-width;
+}
+
+.lecture__wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 $gutter*-0.5;
+
+  & > * {
+    padding-right: $gutter * 0.5;
+    padding-left: $gutter * 0.5;
+    width: 100%;
+
+    @media (min-width: 1100px) {
+      width: 66.66666666%;
+    }
+  }
+}
+
+.lecture__text {
+
+  & > p {
+    margin: $gutter 0;
+    line-height: 2;
+  }
+}
+
+.lecture__image {
+  margin-top: $gutter;
+  margin-bottom: $gutter;
+
+  &__img {
+    width: 100%;
+  }
+
+  &__caption {
+    width: 100%;
+    font-style: italic;
+  }
+}
+
+.lecture__video {
+  padding-bottom: 37.5%;
+  margin: $gutter*0.5 0;
+  position: relative;
+
+  &__iframe {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    padding: $gutter * 0.5;
+    border: 0;
+  }
+}
+
+.lecture__heading {
+  margin-top: $gutter;
+  font-size: 32px;
+  font-family: $font-heading;
+}
+
+.lecture__list {
+  margin-top: $gutter;
+  margin-bottom: $gutter;
+
+  &__item {
+    width: 100%;
+    padding-top: $gutter * 0.5;
+    padding-bottom: $gutter * 0.5;
+  }
+}
+
+.lecture__quote {
+  width: calc(66.66666666% + #{$gutter});
+  margin-top: $gutter;
+  margin-bottom: $gutter;
+  padding: $gutter*0.5;
+  background-color: $lightgray;
+
+  & > * {
+    padding: $gutter*0.5;
+
+    &:last-child {
+      font-style: italic;
+    }
+  }
+}
+
+.lecture__code {
+  margin-top: $gutter;
+  margin-bottom: $gutter;
+  font-family: $font-heading;
+}
+
+.lecture-page-footer {
+  margin: $gutter*2 0;
+  text-align: center;
+  font-family: $font-heading;
+}
+
+.lecture-page-footer__finish {
+  padding: $gutter 0;
+
+  &:before {
+    content: 'Klára fyrirlestur';
+    cursor: pointer;
+  }
+
+  &.lecture-page-footer__finish--checked {
+    color: $green;
+
+    &:before {
+      content: '✓ Fyrirlestur kláraður';
+      cursor: pointer;
+    }
+  }
+}
+
+.lecture-page-footer__back {
+  display: inline-block;
+  margin: $gutter 0;
+  text-decoration: none;
+  color: $black;
+}

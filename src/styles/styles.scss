@@ -24,4 +24,10 @@ img { /* stylelint-disable-line */
   max-width: 100%;
 }
 
+main { /* stylelint-disable-line */
+  padding: 0 $gutter;
+}
+
 // TODO import
+@import "list";
+@import "body";

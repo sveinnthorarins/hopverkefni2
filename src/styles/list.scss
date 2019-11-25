@@ -1,0 +1,91 @@
+
+.list {
+  max-width: $max-width;
+  margin: $gutter auto;
+}
+
+.list__row {
+  display: flex;
+  margin-right: $gutter * -0.5;
+  margin-left: $gutter * -0.5;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.list__col {
+  display: flex;
+  width: 100%;
+  padding-right: $gutter * 0.5;
+  padding-left: $gutter * 0.5;
+  margin-top: $gutter;
+  margin-bottom: $gutter;
+  flex-direction: column;
+  text-decoration: none;
+  color: $black;
+
+  @media (min-width: 1100px) {
+    width: 33.33333333%;
+  }
+
+  &:hover {
+    .list__col__banner {
+      background-color: $darkgray;
+    }
+
+    .list__col__img {
+      background-color: $darkgray;
+    }
+  }
+}
+
+.list__col__img {
+  width: 100%;
+  max-width: 100%;
+  background-color: $lightgray;
+  transition: background-color 300ms ease-in-out;
+  flex-grow: 1;
+}
+
+.list__col__banner {
+  display: flex;
+  width: 100%;
+  padding: $gutter * 0.5;
+  // Margin trikk til að losna við litla línu sem myndast ef það er ekkert thumbnail
+  margin-top: -2px;
+  background-color: $lightgray;
+  transition: background-color 300ms ease-in-out;
+}
+
+.list__col__banner__text {
+  width: 85%;
+  flex-grow: 1;
+}
+
+.list__col__banner__text__category {
+  font-family: $font-heading;
+  text-transform: uppercase;
+}
+
+.list__col__banner__text__title {
+  font-family: $font-heading;
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.list__col__banner__checkmark {
+  display: none;
+  width: 15%;
+  color: $green;
+  justify-content: flex-end;
+  align-items: center;
+  font-size: 48px;
+}
+
+.list__col__banner__checkmark--checked {
+  display: flex;
+
+  &:before {
+    content: '✓';
+    margin-right: $gutter * 0.5;
+  }
+}
