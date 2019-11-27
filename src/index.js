@@ -1,6 +1,11 @@
 import List from './lib/list';
 import {empty, el} from './lib/helpers';
 
+/**
+ * Handler fyrir síunartakkana. 
+ * Filterar listann af fyrirlestrum eftir völdnum flokkum og birtir filteraða listann.
+ * Ef takki var hinsvegar valinn (og er þá nú ekki valinn) er flokkur tekinn úr filternum.
+ */
 function filterButtonClicked(e) {
   const selected = e.target.className.includes('toolbar__button--selected');
   let filteredList;
@@ -24,6 +29,11 @@ function filterButtonClicked(e) {
   }
 }
 
+/**
+ * Handler fyrir klára fyrirlestur takkann.
+ * Vistar fyrirlesturinn í fylki í localstorage.
+ * Ef fyrirlestur var vistaður nú þegar þá er hann afvistaður.
+ */
 function finishLecture(e) {
   const finarr = JSON.parse(localStorage.getItem('finishedArray')) || [];
   const params = new URLSearchParams(window.location.search);
@@ -38,6 +48,11 @@ function finishLecture(e) {
   localStorage.setItem('finishedArray', JSON.stringify(finarr));
 }
 
+/**
+ * Hleður síðu fyrir tiltekinn fyrirlestur.
+ * @param {*} data lectures.json object
+ * @param {*} slug tilheyrandi fyrirlestur sem skoðað er
+ */
 function loadLecture(data, slug) {
   const lectures = data.lectures;
   const [lecture] = lectures.filter((item) => item.slug === slug);

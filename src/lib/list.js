@@ -6,6 +6,10 @@ export default class List {
     this.filterCategories = [];
   }
 
+  /**
+   * Hleður og birtir lista af fyrirlestrum.
+   * @param {*} list array af fyrirlestrunum sem skal birta
+   */
   showList(list) {
     empty(this.container);
     const finarr = JSON.parse(localStorage.getItem('finishedArray')) || [];
@@ -36,11 +40,20 @@ export default class List {
     this.container.appendChild(row);
   }
 
+  /**
+   * Hleður gögn sem innihalda listann af fyrirlestrum.
+   * Kallar á showList() til að birta listann.
+   * @param {*} data 
+   */
   loadList(data) {
     this.list = data.lectures;
     this.showList(this.list);
   }
 
+  /**
+   * Sækir gögn sem innihalda listann af fyrirlestrum.
+   * Kallar á loadList() til að hlaða gögnin.
+   */
   load() {
     fetch('../lectures.json')
     .then((request) => {
