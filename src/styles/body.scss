@@ -1,3 +1,9 @@
+// Ekkert er sagt í fyrirmælum um stærð headers svo ég reyndi að láta stærðina líta út
+// eins svipað útlitsfyrirmyndum og demo-myndbandi og ég gat.
+// Lausnin mín er frekar responsive og reynir að styðja við öll tæki.
+// Ef tæki er nógu stórt er header 50% viewport height annars skilgreinist stærðin
+// af padding á headernum og á fyrirsögnunum í headernum.
+
 .header {
   display: flex;
   padding: $gutter;

@@ -101,7 +101,7 @@ function loadLecture(data, slug) {
   const finarr = JSON.parse(localStorage.getItem('finishedArray')) || [];
   const finishButton = el('div', 'lecture-page-footer__finish');
   const backButton = el('a', 'lecture-page-footer__back', 'Til baka');
-  backButton.href = './index.html';
+  backButton.href = './';
   const footer = el('footer', 'lecture-page-footer', finishButton, backButton);
   if (finarr.includes(lecture.slug)) finishButton.classList.add('lecture-page-footer__finish--checked');
   finishButton.addEventListener('click', finishLecture);
