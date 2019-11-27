@@ -1,8 +1,8 @@
 import List from './lib/list';
-import {empty, el} from './lib/helpers';
+import { el } from './lib/helpers';
 
 /**
- * Handler fyrir síunartakkana. 
+ * Handler fyrir síunartakkana.
  * Filterar listann af fyrirlestrum eftir völdnum flokkum og birtir filteraða listann.
  * Ef takki var hinsvegar valinn (og er þá nú ekki valinn) er flokkur tekinn úr filternum.
  */
@@ -10,10 +10,10 @@ function filterButtonClicked(e) {
   const selected = e.target.className.includes('toolbar__button--selected');
   let filteredList;
   const category = e.target.innerHTML.toLowerCase();
-  let filter = document.listObject.filterCategories;
+  const filter = document.listObject.filterCategories;
 
   if (selected) {
-    let i = filter.indexOf(category);
+    const i = filter.indexOf(category);
     filter.splice(i, 1);
     e.target.classList.remove('toolbar__button--selected');
   } else {
@@ -24,7 +24,7 @@ function filterButtonClicked(e) {
   if (filter.length === 0) {
     document.listObject.showList(document.listObject.list);
   } else {
-    filteredList = document.listObject.list.filter((item) => filter.includes(item.category));
+    filteredList = document.listObject.list.filter(item => filter.includes(item.category));
     document.listObject.showList(filteredList);
   }
 }
@@ -54,8 +54,8 @@ function finishLecture(e) {
  * @param {*} slug tilheyrandi fyrirlestur sem skoðað er
  */
 function loadLecture(data, slug) {
-  const lectures = data.lectures;
-  const [lecture] = lectures.filter((item) => item.slug === slug);
+  const lectures = data.lectures; // eslint-disable-line
+  const [lecture] = lectures.filter(item => item.slug === slug);
   const container = document.querySelector('.lecture-page');
 
   const header = el('header', 'header',
@@ -64,16 +64,16 @@ function loadLecture(data, slug) {
   header.dataset.image = lecture.image;
   container.appendChild(header);
 
-  const content = lecture.content;
+  const content = lecture.content; // eslint-disable-line
   const wrapper = el('div', 'lecture__wrapper');
-  const main = el('main', 0, 
+  const main = el('main', 0,
     el('div', 'lecture', wrapper));
   container.appendChild(main);
   content.forEach((item) => {
     let elmt;
     if (item.type === 'text') {
       elmt = el('div', 'lecture__text');
-      const text = item.data.split("\n");
+      const text = item.data.split('\n');
       text.forEach((str) => {
         elmt.appendChild(el('p', 0, str));
       });
@@ -86,7 +86,7 @@ function loadLecture(data, slug) {
         const capt = el('div', 'lecture__image__caption', item.caption);
         elmt.appendChild(capt);
       }
-    } else if (item.type == 'youtube') {
+    } else if (item.type === 'youtube') {
       elmt = el('div', 'lecture__video');
       const iframe = el('iframe', 'lecture__video__iframe');
       iframe.src = item.data;
@@ -102,7 +102,7 @@ function loadLecture(data, slug) {
         elmt.appendChild(li);
       });
     } else if (item.type === 'quote') {
-      elmt = el('div', 'lecture__quote', 
+      elmt = el('div', 'lecture__quote',
         el('p', 0, item.data));
       if (item.attribute) {
         elmt.appendChild(el('p', 'lecture__quote__attribute', item.attribute));
@@ -128,22 +128,22 @@ document.addEventListener('DOMContentLoaded', () => {
     const params = new URLSearchParams(window.location.search);
     const slug = params.get('slug');
     fetch('./lectures.json')
-    .then((request) => {
-      if (request.ok) return request.json();
-      throw new Error('Error fetching data.');
-    })
-    .then((data) => {
-      loadLecture(data, slug);
-    })
-    .catch((err) => {
-      console.error(err);
-    });
+      .then((request) => {
+        if (request.ok) return request.json();
+        throw new Error('Error fetching data.');
+      })
+      .then((data) => {
+        loadLecture(data, slug);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
   } else {
     const list = new List();
     document.listObject = list;
     list.load();
-    for (let child of document.querySelector('.toolbar').children) {
+    document.querySelector('.toolbar').children.forEach((child) => {
       child.addEventListener('click', filterButtonClicked);
-    }
+    });
   }
 });

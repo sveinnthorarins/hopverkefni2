@@ -6,13 +6,13 @@
 
 .header {
   display: flex;
-  padding: $gutter;
   width: 100%;
+  padding: $gutter;
   text-align: center;
   flex-direction: column;
   justify-content: center;
   align-content: center;
-  background-image: linear-gradient(rgba(255,255,255,0.4), rgba(255,255,255,0.4)), url(../img/header.jpg);
+  background-image: linear-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)), url("../img/header.jpg");
   background-size: cover;
 
   @media (min-width: 1000px) {
@@ -21,12 +21,12 @@
     height: 50vh;
   }
 
-  &[data-image='img/code.jpg'] {
-    background-image: linear-gradient(rgba(255,255,255,0.4), rgba(255,255,255,0.4)), url(../img/code.jpg);
+  &[data-image="img/code.jpg"] {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)), url("../img/code.jpg");
   }
 
-  &[data-image='img/code2.jpg'] {
-    background-image: linear-gradient(rgba(255,255,255,0.4), rgba(255,255,255,0.4)), url(../img/code2.jpg);
+  &[data-image="img/code2.jpg"] {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)), url("../img/code2.jpg");
   }
 }
 
@@ -48,19 +48,19 @@
 
 .toolbar {
   display: flex;
-  margin-top: $gutter * 2;
   width: 100%;
+  margin-top: $gutter * 2;
   flex-direction: row;
   justify-content: center;
 }
 
 .toolbar__button {
-  font-family: $font-heading;
-  font-size: 24px;
-  font-weight: bold;
   padding: $gutter*0.5 $gutter;
   margin-right: $gutter;
   margin-left: $gutter;
+  font-family: $font-heading;
+  font-size: 24px;
+  font-weight: bold;
   background-color: $lightgray;
   border-radius: 15px;
   transition: background-color 300ms ease-in-out;
@@ -79,20 +79,20 @@
 }
 
 .lecture {
-  margin: $gutter auto;
   max-width: $max-width;
+  margin: $gutter auto;
 }
 
 .lecture__wrapper {
   display: flex;
+  margin: 0 $gutter*-0.5;
   flex-direction: column;
   align-items: center;
-  margin: 0 $gutter*-0.5;
 
-  & > * {
+  > * {
+    width: 100%;
     padding-right: $gutter * 0.5;
     padding-left: $gutter * 0.5;
-    width: 100%;
 
     @media (min-width: 1100px) {
       width: 66.66666666%;
@@ -100,12 +100,9 @@
   }
 }
 
-.lecture__text {
-
-  & > p {
-    margin: $gutter 0;
-    line-height: 2;
-  }
+.lecture__text > * {
+  margin: $gutter 0;
+  line-height: 2;
 }
 
 .lecture__image {
@@ -123,19 +120,19 @@
 }
 
 .lecture__video {
+  position: relative;
   padding-bottom: 56.25%;
   margin: $gutter*0.5 0;
-  position: relative;
 
   @media (min-width: 1100px) {
     padding-bottom: 37.5%;
   }
 
   &__iframe {
-    width: 100%;
-    height: 100%;
     position: absolute;
     left: 0;
+    width: 100%;
+    height: 100%;
     padding: $gutter * 0.5;
     border: 0;
   }
@@ -143,8 +140,8 @@
 
 .lecture__heading {
   margin-top: $gutter;
-  font-size: 32px;
   font-family: $font-heading;
+  font-size: 32px;
 }
 
 .lecture__list {
@@ -160,16 +157,16 @@
 
 .lecture__quote {
   width: calc(100% + #{$gutter});
+  padding: $gutter*0.5;
   margin-top: $gutter;
   margin-bottom: $gutter;
-  padding: $gutter*0.5;
   background-color: $lightgray;
 
   @media (min-width: 1100px) {
     width: calc(66.66666666% + #{$gutter});
   }
 
-  & > * {
+  > * {
     padding: $gutter*0.5;
   }
 
@@ -187,24 +184,24 @@
 
 .lecture-page-footer {
   margin: $gutter*2 0;
-  text-align: center;
   font-family: $font-heading;
+  text-align: center;
 }
 
 .lecture-page-footer__finish {
   padding: $gutter 0;
 
-  &:before {
-    content: 'Klára fyrirlestur';
+  &::before {
     cursor: pointer;
+    content: "Klára fyrirlestur";
   }
 
   &.lecture-page-footer__finish--checked {
     color: $green;
 
-    &:before {
-      content: '✓ Fyrirlestur kláraður';
+    &::before {
       cursor: pointer;
+      content: "✓ Fyrirlestur kláraður";
     }
   }
 }
@@ -212,6 +209,6 @@
 .lecture-page-footer__back {
   display: inline-block;
   margin: $gutter 0;
-  text-decoration: none;
   color: $black;
+  text-decoration: none;
 }

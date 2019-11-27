@@ -13,25 +13,24 @@ export default class List {
   showList(list) {
     empty(this.container);
     const finarr = JSON.parse(localStorage.getItem('finishedArray')) || [];
-    let row = el('div', 'list__row');
+    const row = el('div', 'list__row');
 
     list.forEach((item) => {
-      let img = el('img', 'list__col__img');
+      const img = el('img', 'list__col__img');
       if (item.thumbnail) img.src = item.thumbnail;
 
-      let checkmark = el('div', 'list__col__banner__checkmark');
+      const checkmark = el('div', 'list__col__banner__checkmark');
       if (finarr.includes(item.slug)) {
-        console.log(item.slug, ' is included.');
         checkmark.classList.add('list__col__banner__checkmark--checked');
       }
 
-      let banner = el('div', 'list__col__banner', 
+      const banner = el('div', 'list__col__banner',
         el('div', 'list__col__banner__text',
           el('div', 'list__col__banner__text__category', item.category),
           el('div', 'list__col__banner__text__title', item.title)),
         checkmark);
 
-      let col = el('a', 'list__col', img, banner);
+      const col = el('a', 'list__col', img, banner);
       col.href = `./fyrirlestur.html?slug=${item.slug}`;
 
       row.appendChild(col);
@@ -43,7 +42,7 @@ export default class List {
   /**
    * Hleður gögn sem innihalda listann af fyrirlestrum.
    * Kallar á showList() til að birta listann.
-   * @param {*} data 
+   * @param {*} data
    */
   loadList(data) {
     this.list = data.lectures;
@@ -56,15 +55,15 @@ export default class List {
    */
   load() {
     fetch('../lectures.json')
-    .then((request) => {
-      if (request.ok) return request.json();
-      throw new Error('Error fetching data.');
-    })
-    .then((data) => {
-      this.loadList(data);
-    })
-    .catch((err) => {
-      console.error(err);
-    });
+      .then((request) => {
+        if (request.ok) return request.json();
+        throw new Error('Error fetching data.');
+      })
+      .then((data) => {
+        this.loadList(data);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
   }
 }
