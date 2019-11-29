@@ -54,7 +54,7 @@ export default class List {
    * Kallar á loadList() til að hlaða gögnin.
    */
   load() {
-    fetch('../lectures.json')
+    fetch('./lectures.json')
       .then((request) => {
         if (request.ok) return request.json();
         throw new Error('Error fetching data.');

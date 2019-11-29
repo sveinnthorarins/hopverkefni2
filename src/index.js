@@ -142,7 +142,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const list = new List();
     document.listObject = list;
     list.load();
-    document.querySelector('.toolbar').children.forEach((child) => {
+    Array.from(document.querySelector('.toolbar').children).forEach((child) => {
       child.addEventListener('click', filterButtonClicked);
     });
   }
