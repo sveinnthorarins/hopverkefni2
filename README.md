@@ -6,7 +6,9 @@ Eftirfarandi leiðbeiningar gefa skipanir sem skrifa má í skipanalínuglugga s
 Til að setja upp öll nauðsynleg tæki og tól skal keyra:
 `npm install`
 
-Til að keyra lausnina og sjá breytingar uppfærðar samtímis skal keyra:
+Til að þýða lausnina skal keyra: `npm run rollup` og `npm run sass`
+
+Til að þýða og keyra lausnina og sjá breytingar uppfærðar samtímis skal keyra:
 `npm run dev`
 
 Til að linta verkefni og birta villur í stíl á bæði .scss og .js skrám skal keyra:
@@ -30,6 +32,7 @@ Til að linta verkefni og birta villur í stíl á bæði .scss og .js skrám sk
 - `img/` mappa sem geymir allar myndir verkefnis
 
 Tæki og tól verkefnis þýða síðan og binda saman skrárnar í `src/` möppunni og setur í `dist/` möppu í verkefnamöppunni.
+Þessi tól eru `rollup` sem pakkar saman javascript skránum og `node-sass` sem þýðir sass skrárnar yfir í css.
 Þýddar skrár úr `dist/` möppunni skulu fara á vefþjón og allar html skrár skulu því vísa í þessar þýddu skrár.
 Því ætti `src/` mappan aldrei að fyrirfinnast á vefþjóni.
 
