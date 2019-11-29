@@ -33,4 +33,4 @@ Tæki og tól verkefnis þýða síðan og binda saman skrárnar í `src/` möpp
 Því ætti `src/` mappan aldrei að fyrirfinnast á vefþjóni.
 
 ## Þeir sem unnu að verkefni
-Sveinn Þórarinsson, svt9 \[at\] hi.is
+Sveinn Þórarinsson, svt9\[at\]hi.is
