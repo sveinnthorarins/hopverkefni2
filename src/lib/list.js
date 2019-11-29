@@ -16,8 +16,14 @@ export default class List {
     const row = el('div', 'list__row');
 
     list.forEach((item) => {
-      const img = el('img', 'list__col__img');
-      if (item.thumbnail) img.src = item.thumbnail;
+      let img;
+      if (item.thumbnail) {
+        img = el('img', 'list__col__img');
+        img.src = item.thumbnail;
+        img.alt = item.slug;
+      } else {
+        img = el('div', 'list__col__img');
+      }
 
       const checkmark = el('div', 'list__col__banner__checkmark');
       if (finarr.includes(item.slug)) {

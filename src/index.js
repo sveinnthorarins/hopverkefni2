@@ -81,6 +81,7 @@ function loadLecture(data, slug) {
       elmt = el('div', 'lecture__image');
       const img = el('img', 'lecture__image__img');
       img.src = item.data;
+      img.alt = "";
       elmt.appendChild(img);
       if (item.caption) {
         const capt = el('div', 'lecture__image__caption', item.caption);
@@ -94,7 +95,7 @@ function loadLecture(data, slug) {
       iframe.setAttribute('allowfullscreen', '0');
       elmt.appendChild(iframe);
     } else if (item.type === 'heading') {
-      elmt = el('h3', 'lecture__heading', item.data);
+      elmt = el('h2', 'lecture__heading', item.data);
     } else if (item.type === 'list') {
       elmt = el('ul', 'lecture__list');
       item.data.forEach((listitem) => {
