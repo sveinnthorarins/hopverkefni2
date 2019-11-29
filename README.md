@@ -17,6 +17,7 @@ Til að linta verkefni og birta villur í stíl á bæði .scss og .js skrám sk
 - stillingarskrár fyrir tæki og tól
 - html skrár (`index.html` og `fyrirlestur.html`)
 - gögn um fyrirlestra (`lectures.json`)
+- `grid.css` - hjálparskrá sem birtir grid overlay á vefsíðu sem element eru röðuð upp miðað við
 - `src/` mappa sem inniheldur:
   - `index.js` - aðal javascript skráin
   - `lib/` mappa sem inniheldur aðrar javascript skrár sem nýtast í aðalskránni
